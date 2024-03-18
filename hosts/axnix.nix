@@ -1,5 +1,4 @@
-{ nixpkgs, pkgs, ... }:
-{
+{ nixpkgs, pkgs, ... }: {
   # Define hostname
   networking.hostName = "axnix";
 
@@ -19,26 +18,18 @@
         variant = "";
       };
 
-      # Enable the gnome desktop environment
-      displayManager = {
-        gdm.enable = true;
-        gnome.enable = true;
-      };
-    };
-    /*
       # Enable the KDE Plasma Desktop environment
       displayManager = {
         sddm = {
           enable = true;
           wayland.enable = false;
         };
-        defaultSession = "plasmax11";
+        defaultSession = "plasma";
       };
-        };
+    };
 
-        # Enable KDE Plasma
-        desktopManager.plasma6.enable = true;
-      */
+    # Enable KDE Plasma
+    desktopManager.plasma6.enable = true;
 
     # Enable CUPS to print documents.
     printing.enable = true;
