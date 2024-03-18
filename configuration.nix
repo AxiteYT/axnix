@@ -27,6 +27,13 @@
 
   # Packages installed in system profile
   #TODO: move these to different flakes depending on system
+
+  let
+  # Ollama hardware acceleration override
+  customOllama = pkgs.ollama.override {
+    acceleration = "rocm";
+  };
+  in
   environment.systemPackages = with pkgs; [
     btop
     cargo
@@ -39,7 +46,7 @@
     neovim
     nixpkgs-fmt
     ntfs3g
-    ollama
+    customOllama
     patchelf
     powershell
     vlc
@@ -50,5 +57,6 @@
   # Enable Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  system.stateVersion = "24.05"; # Did you read the comment?
+  # Initial systemState
+  system.stateVersion = "24.05";
 }
