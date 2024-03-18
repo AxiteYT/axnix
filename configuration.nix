@@ -39,6 +39,7 @@
     neovim
     nixpkgs-fmt
     ntfs3g
+    ollama
     patchelf
     powershell
     vlc
