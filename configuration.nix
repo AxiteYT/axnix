@@ -1,5 +1,11 @@
 { config, pkgs, ... }:
 
+let
+  # Ollama hardware acceleration override
+  customOllama = pkgs.ollama.override {
+    acceleration = "rocm";
+  };
+in
 {
   imports = [ ];
 
@@ -27,13 +33,6 @@
 
   # Packages installed in system profile
   #TODO: move these to different flakes depending on system
-
-  let
-  # Ollama hardware acceleration override
-  customOllama = pkgs.ollama.override {
-    acceleration = "rocm";
-  };
-  in
   environment.systemPackages = with pkgs; [
     btop
     cargo
