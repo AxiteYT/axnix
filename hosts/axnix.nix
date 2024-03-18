@@ -20,9 +20,10 @@
       };
 
       # Enable the gnome desktop environment
-      displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = true;
-
+      displayManager = {
+        gdm.enable = true;
+        gnome.enable = true;
+      };
     };
     /*
       # Enable the KDE Plasma Desktop environment
