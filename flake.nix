@@ -31,6 +31,7 @@
               ./hardware/bootloader.nix
               ./hardware/hardware-configuration.nix
               ./hardware/mounts.nix
+              ./hardware/sound.nix
 
               # Home Manager
               ./home/default.nix
