@@ -32,7 +32,6 @@
     cargo
     cifs-utils
     ffmpeg-full
-    gamemode
     killall
     lutris
     neofetch
@@ -42,7 +41,7 @@
     patchelf
     powershell
     vlc
-    wayland-utils
+    #wayland-utils
     wine
   ];
 

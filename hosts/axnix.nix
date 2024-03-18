@@ -23,9 +23,9 @@
       displayManager = {
         sddm = {
           enable = true;
-          wayland.enable = true;
+          wayland.enable = false;
         };
-        defaultSession = "plasma";
+        defaultSession = "plasmax11";
       };
     };
 
