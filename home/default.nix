@@ -8,32 +8,40 @@
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
-    # State version
-    home = { stateVersion = "24.05"; };
+    # Home config
+    home = {
 
-    # Packages
-    home.packages = with pkgs;
-      [
-        brave
-        davinci-resolve
-        discord
-        dolphinEmu
-        gh
-        gimp
-        hunspell
-        k4dirstat
-        lutris
-        neofetch
-        nixfmt
-        patchelf
-        protonup-qt
-        putty
-        spotify
-        unityhub
-        vlc
-        vscodium
-      ];
+      # State version
+      stateVersion = "24.05";
 
+      # Editor
+      sessionVariables = {
+        EDITOR = "codium";
+      };
+
+      # Packages
+      packages = with pkgs;
+        [
+          brave
+          davinci-resolve
+          discord
+          dolphinEmu
+          gh
+          gimp
+          hunspell
+          k4dirstat
+          lutris
+          neofetch
+          nixfmt
+          patchelf
+          protonup-qt
+          putty
+          spotify
+          unityhub
+          vlc
+          vscodium
+        ];
+    };
     # Programs
     programs = {
 
