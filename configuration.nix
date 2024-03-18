@@ -32,7 +32,7 @@
     cargo
     cifs-utils
     ffmpeg-full
-    gamemoderun
+    gamemode
     killall
     lutris
     neofetch
