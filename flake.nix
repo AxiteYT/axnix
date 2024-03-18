@@ -10,12 +10,9 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # Nixified.ai
-    nixifiedai.url = "github:nixified-ai/flake";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixifiedai, ... }:
+  outputs = { self, nixpkgs, home-manager, ... }:
     let
       lib = nixpkgs.lib;
     in
@@ -24,7 +21,6 @@
         axnix = lib.nixosSystem
           {
             system = "x86_64-linux";
-            specialArgs = { inherit nixifiedai; };
             modules = [
               # Configuration
               ./configuration.nix
@@ -44,7 +40,7 @@
               home-manager.nixosModules.home-manager
 
               # Modules
-              ./modules/nixified-ai.nix
+              #./modules/ollama.nix
             ];
           };
       };
