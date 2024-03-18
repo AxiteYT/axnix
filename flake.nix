@@ -36,6 +36,9 @@
               # Home Manager
               ./home/default.nix
               home-manager.nixosModules.home-manager
+
+              # Modules
+              ./modules/ollama.nix
             ];
           };
       };
