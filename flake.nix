@@ -2,15 +2,20 @@
   description = "The Axnix flake configuration";
 
   inputs = {
+    # Nixpkgs
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
+    # Home-Manager
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Nixified.ai
+    nixifiedai.url = "github:nixified-ai/flake";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
+  outputs = { self, nixpkgs, home-manager, nixifiedai, ... }:
     let
       lib = nixpkgs.lib;
     in
@@ -19,6 +24,7 @@
         axnix = lib.nixosSystem
           {
             system = "x86_64-linux";
+            specialArgs = { inherit nixifiedai; };
             modules = [
               # Configuration
               ./configuration.nix
@@ -38,7 +44,7 @@
               home-manager.nixosModules.home-manager
 
               # Modules
-              ./modules/ollama.nix
+              ./modules/nixified-ai.nix
             ];
           };
       };
