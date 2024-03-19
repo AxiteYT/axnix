@@ -2,6 +2,9 @@
 {
   imports = [ ];
 
+  # Set domain
+  networking.domain = "axitemedia.com";
+
   # Set your time zone.
   time.timeZone = "Australia/Sydney";
 
@@ -23,39 +26,6 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  # Packages installed in system profile
-  #TODO: move these to different flakes depending on system
-  environment.systemPackages = with pkgs; [
-    btop
-    cargo
-    cifs-utils
-    ffmpeg-full
-    gamemode
-    killall
-    lutris
-    neofetch
-    neovim
-    nixpkgs-fmt
-    ntfs3g
-    ollama
-    patchelf
-    powershell
-    vlc
-    wayland-utils
-    wine
-  ];
-
-  # Ollama Service
-    services.ollama = {
-    enable = true;
-    acceleration = "rocm";
-
-    environmentVariables = {
-      HOME = "/tmp";
-      OLLAMA_LLM_LIBRARY = "rocm";
-    };
-  };
 
   # Enable Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

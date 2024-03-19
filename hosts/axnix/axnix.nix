@@ -5,6 +5,35 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # System Packages
+  environment.systemPackages = with pkgs; [
+    btop
+    cargo
+    cifs-utils
+    ffmpeg-full
+    gamemode
+    killall
+    lutris
+    neofetch
+    neovim
+    nixpkgs-fmt
+    ntfs3g
+    ollama
+    patchelf
+    powershell
+    tree
+    vlc
+    wayland-utils
+    wine
+  ];
+
+  # Define user account.
+  users.users.axite = {
+    isNormalUser = true;
+    description = "Kyle Smith";
+    extraGroups = [ "networkmanager" "wheel" "flatpak" ];
+  };
+
   # Service configuration
   services = {
     flatpak.enable = true;
@@ -65,13 +94,6 @@
         sansSerif = [ "Noto Sans" "Source Han Sans" ];
       };
     };
-  };
-
-  # Define user account.
-  users.users.axite = {
-    isNormalUser = true;
-    description = "Kyle Smith";
-    extraGroups = [ "networkmanager" "wheel" "flatpak" ];
   };
 
   # Enable wayland for Chromium/Electron based applications

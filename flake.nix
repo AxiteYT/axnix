@@ -29,11 +29,11 @@
               ./hosts/axnix.nix
 
               # Hardware config
-              ./hardware/amd.nix
-              ./hardware/bootloader.nix
-              ./hardware/hardware-configuration.nix
-              ./hardware/mounts.nix
-              ./hardware/sound.nix
+              ./hosts/axnix/amd.nix
+              ./hosts/axnix/bootloader.nix
+              ./hosts/axnix/hardware-configuration.nix
+              ./hosts/axnix/mounts.nix
+              ./hosts/axnix/sound.nix
 
               # Home Manager
               ./home/default.nix
@@ -43,6 +43,26 @@
               #./modules/ollama.nix
             ];
           };
+        jeli = lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            # Configuration
+            ./configuration.nix
+
+            # Host
+            ./hosts/jeli.nix
+
+            # Hardware config
+            ./hosts/jeli/bootloader.nix
+            ./hardware/qemu.nix
+
+            # Home Manager
+            home-manager.nixosModules.home-manager
+
+            # Modules
+            ./modules/unifi.nix
+          ];
+        };
       };
     };
 }
