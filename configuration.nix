@@ -1,11 +1,4 @@
 { config, pkgs, ... }:
-
-let
-  # Ollama hardware acceleration override
-  customOllama = pkgs.ollama.override {
-    acceleration = "rocm";
-  };
-in
 {
   imports = [ ];
 
@@ -45,7 +38,7 @@ in
     neovim
     nixpkgs-fmt
     ntfs3g
-    customOllama
+    ollama
     patchelf
     powershell
     vlc
