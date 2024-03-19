@@ -26,7 +26,7 @@
               ./configuration.nix
 
               # Host
-              ./hosts/axnix.nix
+              ./hosts/axnix/axnix.nix
 
               # Hardware config
               ./hosts/axnix/amd.nix
