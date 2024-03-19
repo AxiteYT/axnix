@@ -46,6 +46,17 @@
     wine
   ];
 
+  # Ollama Service
+    services.ollama = {
+    enable = true;
+    acceleration = "rocm";
+
+    environmentVariables = {
+      HOME = "/tmp";
+      OLLAMA_LLM_LIBRARY = "rocm";
+    };
+  };
+
   # Enable Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
