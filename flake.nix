@@ -50,10 +50,11 @@
             ./configuration.nix
 
             # Host
-            ./hosts/jeli.nix
+            ./hosts/jeli/jeli.nix
 
             # Hardware config
             ./hosts/jeli/bootloader.nix
+            ./hosts/jeli/hardware-configuration.nix
             ./hardware/qemu.nix
 
             # Home Manager

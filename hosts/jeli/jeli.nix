@@ -26,6 +26,7 @@
 
   # System Packages
   environment.systemPackages = with pkgs; [
+    gh
     git
     neofetch
     nixpkgs-fmt
