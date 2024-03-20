@@ -64,6 +64,26 @@
             #./modules/unifi.nix
           ];
         };
+        besta = lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            # Configuration
+            ./configuration.nix
+
+            # Host
+            ./hosts/besta/besta.nix
+
+            # Hardware config
+            ./hosts/besta/bootloader.nix
+            ./hosts/besta/hardware-configuration.nix
+            ./hardware/qemu.nix
+
+            # Home Manager
+            home-manager.nixosModules.home-manager
+
+            # Modules
+          ];
+        };
       };
     };
 }
