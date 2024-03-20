@@ -61,7 +61,7 @@
             home-manager.nixosModules.home-manager
 
             # Modules
-            ./modules/unifi.nix
+            #./modules/unifi.nix
           ];
         };
       };
