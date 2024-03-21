@@ -31,6 +31,7 @@
           hunspell
           k4dirstat
           lutris
+          minecraft-launcher
           neofetch
           nixfmt
           patchelf
