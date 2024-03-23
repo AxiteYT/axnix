@@ -23,7 +23,7 @@
       packages = with pkgs;
         [
           brave
-          davinci-resolve
+          #davinci-resolve # Big download :(
           discord
           dolphinEmu
           gh
