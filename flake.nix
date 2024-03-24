@@ -40,7 +40,7 @@
               home-manager.nixosModules.home-manager
 
               # Modules
-              #./modules/ollama.nix
+              ./modules/ollama.nix
             ];
           };
         jeli = lib.nixosSystem {
