@@ -41,6 +41,7 @@
           unityhub
           vlc
           vscodium
+          wgnord
         ];
     };
     # Programs
