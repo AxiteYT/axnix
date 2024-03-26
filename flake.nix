@@ -79,6 +79,7 @@
             # Hardware config
             ./hosts/besta/bootloader.nix
             ./hosts/besta/hardware-configuration.nix
+            ./hosts/besta/disko.nix
             ./hardware/qemu.nix
 
             # Home Manager
