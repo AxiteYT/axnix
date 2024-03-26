@@ -22,5 +22,14 @@ nix --extra-experimental-features "nix-command flakes" flake show
 echo 'Which flake would you like to pick?'
 read desiredFlake
 
-# TODO: Check if this works # Format disks using disko
+# Format disks using disko
 nix --extra-experimental-features "nix-command flakes" run github:nix-community/disko -- --mode zap_create_mount --flake .#${desiredFlake} --arg disks '[ "/dev/sda" ]'
+
+# Install NixOS
+nixos-install --flake .#besta --root /mnt --no-root-password  
+
+# Prompt for password
+passwd ${desiredFlake}
+
+# Reboot
+Reboot
