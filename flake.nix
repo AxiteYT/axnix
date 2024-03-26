@@ -6,7 +6,7 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
     # Disko
-    inputs.disko = {
+    disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
