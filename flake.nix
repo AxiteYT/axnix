@@ -85,6 +85,9 @@
             # Disko
             disko.nixosModules.disko
             ./hosts/besta/disko.nix
+            {
+              _module.args.disks = [ "/dev/sda" ];
+            }
 
             # Hardware config
             ./hosts/besta/bootloader.nix

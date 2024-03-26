@@ -14,13 +14,13 @@ git clone https://github.com/axiteyt/axnix
 cd ./axnix
 
 # Update flake
-nix flake update
+nix --extra-experimental-features "nix-command flakes" flake update 
 
 # Prompt user for flake
 echo 'Displaying flakes'
-nix flake show
+nix --extra-experimental-features "nix-command flakes" flake show
 echo 'Which flake would you like to pick?'
 read desiredFlake
 
 # TODO: Check if this works # Format disks using disko
-nix run github:nix-community/disko -- --mode zap_create_mount --flake .#${desiredFlake} --arg disks '[ "/dev/sda" ]'
+nix --extra-experimental-features "nix-command flakes" run github:nix-community/disko -- --mode zap_create_mount --flake .#${desiredFlake} --arg disks '[ "/dev/sda" ]'
