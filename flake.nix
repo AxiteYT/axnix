@@ -5,6 +5,12 @@
     # Nixpkgs
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
+    # Disko
+    inputs.disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Home-Manager
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -12,7 +18,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
+  outputs = { self, nixpkgs, home-manager, disko, ... }:
     let
       lib = nixpkgs.lib;
     in
@@ -76,10 +82,13 @@
             # Host
             ./hosts/besta/besta.nix
 
+            # Disko
+            disko.nixosModules.disko
+            ./hosts/besta/disko.nix
+
             # Hardware config
             ./hosts/besta/bootloader.nix
             ./hosts/besta/hardware-configuration.nix
-            ./hosts/besta/disko.nix
             ./hardware/qemu.nix
 
             # Home Manager
