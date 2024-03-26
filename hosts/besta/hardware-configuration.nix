@@ -10,7 +10,7 @@
     ];
 
     initrd = {
-      avaliableKernelModules = [
+      availableKernelModules = [
         "uhci_hcd"
         "ehci_pci"
         "ahci"
