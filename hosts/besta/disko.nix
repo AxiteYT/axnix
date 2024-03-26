@@ -1,5 +1,5 @@
-{
-  disko.devices = {
+{ lib, disks ? [ "/dev/sda" ], ... }: {
+  disko.devices = lib.mkIf (lib.length disks != 0) {
     disk = {
       main = {
         type = "disk";
