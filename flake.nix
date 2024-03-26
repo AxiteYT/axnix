@@ -43,7 +43,7 @@
               ./modules/ollama.nix
 
               # Custom NordVPN
-              ./modules/nordvpn/default.nix
+              #./modules/nordvpn/default.nix
             ];
           };
         jeli = lib.nixosSystem {
