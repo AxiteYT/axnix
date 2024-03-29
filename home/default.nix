@@ -38,6 +38,7 @@
           protonup-qt
           putty
           spotify
+          steamcmd
           unityhub
           vlc
           vscodium
@@ -63,15 +64,32 @@
       };
 
       # OBS
-      obs-studio.enable = true;
-      obs-studio.package = pkgs.obs-studio;
-      obs-studio.plugins =
-        map (plugin: pkgs.obs-studio-plugins.${plugin}) [
-          "obs-vaapi"
-          "obs-vkcapture"
-          "obs-gstreamer"
-          "wlrobs"
-        ];
+      obs-studio = {
+        enable = true;
+        package = pkgs.obs-studio;
+        plugins =
+          map (plugin: pkgs.obs-studio-plugins.${plugin}) [
+            "obs-vaapi"
+            "obs-vkcapture"
+            "obs-gstreamer"
+            "wlrobs"
+          ];
+      };
+
+      # Steam
+      programs.steam = {
+        enable = true;
+        remotePlay.openFirewall = true;
+        dedicatedServer.openFirewall = true;
+        package = pkgs.steam.override {
+          withPrimus = true;
+          withJava = true;
+          extraPkgs = pkgs: [
+            bumblebee
+            glxinfo
+          ];
+        };
+      };
     };
   };
 }

@@ -31,15 +31,20 @@
   users.users.axite = {
     isNormalUser = true;
     description = "Kyle Smith";
-    extraGroups = [ "networkmanager" "wheel" "flatpak" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      /*"flatpak"*/
+    ];
   };
 
   # Service configuration
   services = {
-    flatpak.enable = true;
+    #flatpak.enable = true;
 
     # Configure keymap in X11
     xserver = {
+
       # Enable the X11 windowing system.
       enable = true;
       xkb = {
@@ -90,8 +95,14 @@
       enable = true;
       defaultFonts = {
         monospace = [ "Meslo LG M Regular Nerd Font Complete Mono" ];
-        serif = [ "Noto Serif" "Source Han Serif" ];
-        sansSerif = [ "Noto Sans" "Source Han Sans" ];
+        serif = [
+          "Noto Serif"
+          "Source Han Serif"
+        ];
+        sansSerif = [
+          "Noto Sans"
+          "Source Han Sans"
+        ];
       };
     };
   };
