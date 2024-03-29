@@ -63,6 +63,11 @@
         userEmail = "kylesmthh@gmail.com";
       };
 
+      # Java
+      programs.java = {
+        enable = true;
+      };
+
       # OBS
       obs-studio = {
         enable = true;
@@ -84,10 +89,6 @@
         package = pkgs.steam.override {
           withPrimus = true;
           withJava = true;
-          extraPkgs = pkgs: [
-            bumblebee
-            glxinfo
-          ];
         };
       };
     };
