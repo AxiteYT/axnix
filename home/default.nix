@@ -45,6 +45,7 @@
           wgnord
         ];
     };
+
     # Programs
     programs = {
 
@@ -63,12 +64,6 @@
         userEmail = "kylesmthh@gmail.com";
       };
 
-      # Java
-      java = {
-        enable = true;
-      };
-
-
       # OBS
       obs-studio = {
         enable = true;
@@ -80,13 +75,6 @@
             "obs-gstreamer"
             "wlrobs"
           ];
-      };
-
-      # Steam
-      steam = {
-        enable = true;
-        remotePlay.openFirewall = true;
-        dedicatedServer.openFirewall = true;
       };
     };
   };

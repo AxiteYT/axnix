@@ -75,8 +75,30 @@
     style = "adwaita-dark";
   };
 
-  programs.dconf.enable = true;
+  # Programs
+  programs = {
 
+    # dconf
+    dconf.enable = true;
+
+    # Java
+    java = {
+      enable = true;
+    };
+
+    # Steam
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+      package = pkgs.steam.override {
+        withPrimus = true;
+        withJava = true;
+      };
+    };
+  };
+
+  # Fonts
   fonts = {
     packages = with pkgs; [
       font-awesome
