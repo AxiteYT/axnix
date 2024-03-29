@@ -64,9 +64,10 @@
       };
 
       # Java
-      programs.java = {
+      java = {
         enable = true;
       };
+
 
       # OBS
       obs-studio = {
@@ -82,10 +83,14 @@
       };
 
       # Steam
-      programs.steam = {
+      steam = {
         enable = true;
         remotePlay.openFirewall = true;
         dedicatedServer.openFirewall = true;
+        package = pkgs.steam.override {
+          withPrimus = true;
+          withJava = true;
+        };
       };
     };
   };
