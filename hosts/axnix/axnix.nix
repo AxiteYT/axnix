@@ -86,7 +86,6 @@
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
     };
-    steam.package = pkgs.steam.override { withJava = true; };
   };
 
   # Fonts
