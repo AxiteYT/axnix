@@ -38,7 +38,6 @@
           protonup-qt
           putty
           spotify
-          steamcmd
           unityhub
           vlc
           vscodium
