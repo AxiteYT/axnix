@@ -12,6 +12,7 @@
     cifs-utils
     ffmpeg-full
     gamemode
+    gawk
     killall
     lutris
     neofetch
@@ -24,10 +25,18 @@
     protontricks
     steamcmd
     tree
+    unzip
+    vim
     vlc
     wayland-utils
+    wget
     wineWowPackages.waylandFull
     winetricks
+    xdotool
+    xprop
+    xrandr
+    xwininfo
+    yad
   ];
 
   # Define user account.
