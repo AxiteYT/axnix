@@ -79,6 +79,13 @@
   programs = {
     # dconf
     dconf.enable = true;
+
+    # Steam
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+    };
   };
 
   # Fonts
