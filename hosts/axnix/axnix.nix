@@ -37,13 +37,13 @@
     extraGroups = [
       "networkmanager"
       "wheel"
-      "flatpak"
+      /*"flatpak"*/
     ];
   };
 
   # Service configuration
   services = {
-    flatpak.enable = true;
+    #flatpak.enable = true;
 
     # Configure keymap in X11
     xserver = {
