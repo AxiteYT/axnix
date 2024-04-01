@@ -21,11 +21,13 @@
     ollama
     patchelf
     powershell
+    protontricks
     steamcmd
     tree
     vlc
     wayland-utils
-    wine
+    wineWowPackages.waylandFull
+    winetricks
   ];
 
   # Define user account.
