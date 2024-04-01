@@ -33,9 +33,9 @@
     wineWowPackages.waylandFull
     winetricks
     xdotool
-    xprop
-    xrandr
-    xwininfo
+    xorg.xprop
+    xorg.xrandr
+    xorg.xwininfo
     yad
   ];
 
