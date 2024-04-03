@@ -46,7 +46,9 @@ NIXOS_INSTALL_BOOTLOADER=1 chroot /mnt \
 END
 
 # Explain password setting
+echo ######################################################################
 echo "Please set the root password by running the following commands:"
+echo ""
 
 echo "nixos-enter --root /mnt"
 echo "passwd ${desiredFlake}"
