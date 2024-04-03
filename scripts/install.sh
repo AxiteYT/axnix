@@ -31,6 +31,20 @@ nix \
 # Install NixOS
 nixos-install --flake .#${desiredFlake} --root /mnt --no-root-password
 
+#TODO: Uncomment if bootloader doesn't install again.
+: <<'END'
+# Bootloader
+echo ######################################################################
+echo ""
+echo Ignore the prior error messages, installing bootloader manually now...
+echo ""
+echo ######################################################################
+
+for i in dev proc sys; do mount --rbind /$i /mnt/$i; done
+NIXOS_INSTALL_BOOTLOADER=1 chroot /mnt \
+  /nix/var/nix/profiles/system/bin/switch-to-configuration boot
+END
+
 # Explain password setting
 echo "Please set the root password by running the following commands:"
 
