@@ -22,12 +22,14 @@ nix --extra-experimental-features "nix-command flakes" flake show
 echo 'Which flake would you like to pick?'
 read desiredFlake
 
+#TODOL Re-enable this if you want to format disks using disko prior to NixOS-install
+: <<'END'
 # Format disks using disko
 nix \
   --experimental-features "nix-command flakes" \
   run github:nix-community/disko -- \
   --mode disko /tmp/axnix/hosts/${desiredFlake}/disko.nix
-
+END
 # Install NixOS
 nixos-install --flake .#${desiredFlake} --root /mnt --no-root-password
 
