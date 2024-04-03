@@ -1,15 +1,15 @@
-{ lib, disks ? [ "/dev/sda" ], ... }: {
-  disko.devices = lib.mkIf (lib.length disks != 0) {
+{
+  disko.devices = {
     disk = {
       main = {
         type = "disk";
-        device = builtins.elemAt disks 0;
+        device = "/dev/sda";
         content = {
           type = "gpt";
           partitions = {
             boot = {
               size = "1M";
-              type = "EF02";
+              type = "EF02"; # for grub MBR
             };
             ESP = {
               size = "512M";

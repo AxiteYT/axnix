@@ -14,7 +14,7 @@ git clone https://github.com/axiteyt/axnix
 cd ./axnix
 
 # Update flake
-nix --extra-experimental-features "nix-command flakes" flake update 
+nix --extra-experimental-features "nix-command flakes" flake update
 
 # Prompt user for flake
 echo 'Displaying flakes'
@@ -23,14 +23,17 @@ echo 'Which flake would you like to pick?'
 read desiredFlake
 
 # Format disks using disko
-nix --extra-experimental-features "nix-command flakes" run github:nix-community/disko -- --write-efi-boot-entries --mode zap_create_mount --flake .#${desiredFlake} --arg disks '[ "/dev/sda" ]'
+nix \
+  --experimental-features "nix-command flakes" \
+  run github:nix-community/disko -- \
+  --mode disko /tmp/axnix/hosts/${desiredFlake}/disko.nix
 
 # Install NixOS
-nixos-install --flake .#besta --root /mnt --no-root-password  
+nixos-install --flake .#${desiredFlake} --root /mnt --no-root-password
 
 # Prompt for password
 nixos-enter --root /mnt # Enter freshly installed OS
 passwd ${desiredFlake}
 
 # Reboot
-Reboot
+#TODO: Reboot
