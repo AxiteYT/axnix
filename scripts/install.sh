@@ -31,9 +31,11 @@ nix \
 # Install NixOS
 nixos-install --flake .#${desiredFlake} --root /mnt --no-root-password
 
-# Prompt for password
-nixos-enter --root /mnt # Enter freshly installed OS
-passwd ${desiredFlake}
+# Explain password setting
+echo "Please set the root password by running the following commands:"
+
+echo "nixos-enter --root /mnt"
+echo "passwd ${desiredFlake}"
 
 # Reboot
 #TODO: Reboot
