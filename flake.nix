@@ -83,8 +83,8 @@
             ./hosts/besta/besta.nix
 
             # Disko
-            disko.nixosModules.disko
-            ./hosts/besta/disko.nix
+            #disko.nixosModules.disko
+            #./hosts/besta/disko.nix
 
             # Hardware config
             ./hosts/besta/bootloader.nix
