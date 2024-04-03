@@ -1,10 +1,12 @@
 { config, lib, pkgs, ... }: {
   # Bootloader.
-  boot.loader.grub = {
-    enable = true;
-    device = "nodev";
-    efiSupport = true;
-    efiInstallAsRemovable = true;
-    efiSysMountPoint = "/boot";
+  boot.loader = {
+    efi.efiSysMountPoint = "/boot/efi";
+    grub = {
+      enable = true;
+      device = "nodev";
+      efiSupport = true;
+      efiInstallAsRemovable = true;
+    };
   };
 }
