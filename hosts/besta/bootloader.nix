@@ -5,6 +5,6 @@
     device = "nodev";
     efiSupport = true;
     efiInstallAsRemovable = true;
-    efiSysMountPoint = "/boot/efi";
+    efiSysMountPoint = "/boot";
   };
 }
