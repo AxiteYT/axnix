@@ -23,7 +23,26 @@
       lib = nixpkgs.lib;
     in
     {
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
       nixosConfigurations = {
+
+        ISO = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            # Installation CD
+            "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+            ({ pkgs, ... }: {
+              systemd.services.sshd.wantedBy = nixpkgs.lib.mkForce [ "multi-user.target" ];
+
+              # Add SSH key(s)
+              users.users.root.openssh.authorizedKeys.keys = [
+                "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINMXEwWst3Kkag14hG+nCtiRX8KHcn6w/rUeZC5Ww7RU axite@axitemedia.com"
+              ];
+              environment.systemPackages = [ ];
+            })
+          ];
+        };
+
         axnix = lib.nixosSystem
           {
             system = "x86_64-linux";
